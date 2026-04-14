@@ -6,6 +6,7 @@ Trong file này có hàm SysTick_handler() và hàm PendSV_handler():
     + Priority queue: Khi có task có priority cao hơn -> SysTick trigger PendSV thực hiện context switch
     -> Tóm lại với mỗi thuật toán SysTick khác nhau thì điều kiện sẽ khác nhau nhưng chức năng chung là thỏa 1 điều kiện nào đó sẽ trigger PendSV thực hiện context switch 
   - PendSV_handler() thằng này thực hiện đúng 1 việc là context switch ( context twitch là chuổi thao tác gồm: lưu context của task hiện tại, chọn task mới, restore context của task mới, run)
+
 "rtos.c"
 Trong file này có hàm rtos_create_task(), scheduler(), và rtos_start()
   - rtos_create_task() để truyền vào 1 hàm (công việc mà cpu cần làm) thay vì gọi trực tiếp hàm đó, lí do là phải làm như vậy mới có thể switch giữa các task, đây là điểm khác biệt có hệ điều hành so với việc chạy task tuần tự như lập trình vdk bình thường
